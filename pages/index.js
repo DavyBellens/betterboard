@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-
+import { LuzmoDashboardComponent } from '@luzmo/react-embed';
 import { useRouter } from "next/router";
 
 function App() {
@@ -41,7 +41,13 @@ function App() {
   return (
     <div>
       <h1>Dashboard</h1>
-      <pre>{JSON.stringify(data, null, 2)}</pre>
+      <LuzmoDashboardComponent
+        appServer="https://app.luzmo.com"
+        apiHost="https://api.luzmo.com"
+        authKey={process.env.LUZMO_API_KEY}
+        authToken={process.env.LUZMO_API_TOKEN}
+        dashboardId={dashboardId}
+      ></LuzmoDashboardComponent>
     </div>
   );
 }
